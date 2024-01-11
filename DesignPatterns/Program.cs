@@ -1,17 +1,15 @@
-using DesignPatterns.Library.AbstractFactoryExample.Factories;
-using DesignPatterns.Library.AbstractFactoryExample.Products;
+using DesignPatterns.Library.FactoryMethod;
 
-Console.WriteLine("--- Abstract Factory Example ---");
+Console.WriteLine("--- Factory Method ---");
 
-IWindowElementFactory factory = new FlatFactory();
-
-List<IWindowElement> products = new()
+List<Creator> creators = new()
 {
-    factory.CreateButton(),
-    factory.CreateNavBar()
+    new ConcreteCreatorA(),
+    new ConcreteCreatorB()
 };
 
-foreach (var product in products)
+foreach (var creator in creators)
 {
-    product.DoSomething();
+    creator.FactoryMethod()
+           .DoSomething();
 }
