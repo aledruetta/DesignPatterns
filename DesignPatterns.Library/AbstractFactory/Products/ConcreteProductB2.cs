@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Library.AbstractFactory.Products;
+namespace DesignPatterns.Library.AbstractFactory.Products;
 
 public sealed class ConcreteProductB2 : AbstractProductB
 {

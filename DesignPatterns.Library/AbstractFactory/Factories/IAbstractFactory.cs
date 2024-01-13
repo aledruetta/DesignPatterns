@@ -1,4 +1,4 @@
-﻿using DesignPatterns.Library.AbstractFactory.Products;
+using DesignPatterns.Library.AbstractFactory.Products;
 
 namespace DesignPatterns.Library.AbstractFactory.Factories
 {

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="AbstractFactory/" />
+    <Folder Include="AbstractFactoryExample/" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace DesignPatterns.Library.AbstractFactory.Products;
+namespace DesignPatterns.Library.AbstractFactory.Products;
 
 public abstract class AbstractProductB : IProduct
 {

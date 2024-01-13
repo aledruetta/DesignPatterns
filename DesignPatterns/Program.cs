@@ -1,14 +1,14 @@
-using DesignPatterns.Library.AbstractFactory.Factories;
-using DesignPatterns.Library.AbstractFactory.Products;
+using DesignPatterns.Library.AbstractFactoryExample.Factories;
+using DesignPatterns.Library.AbstractFactoryExample.Products;
 
-Console.WriteLine("--- Abstract Factory ---");
+Console.WriteLine("--- Abstract Factory Example ---");
 
-IAbstractFactory factory = new ConcreteFactory4();
+IWindowElementFactory factory = new FlatFactory();
 
-List<IProduct> products = new()
+List<IWindowElement> products = new()
 {
-    factory.CreateProductA(),
-    factory.CreateProductB()
+    factory.CreateButton(),
+    factory.CreateNavBar()
 };
 
 foreach (var product in products)
