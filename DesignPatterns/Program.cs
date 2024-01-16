@@ -1,15 +1,16 @@
-using DesignPatterns.Library.FactoryMethod;
+using DesignPatterns.Library.FactoryMethodExample;
 
-Console.WriteLine("--- Factory Method ---");
+Console.WriteLine("--- Factory Method Example ---");
+Console.WriteLine();
 
-List<Creator> creators = new()
+List<IDocumentFactory> factories = new()
 {
-    new ConcreteCreatorA(),
-    new ConcreteCreatorB()
+    new ODFDocumentFactory(),
+    new PDFDocumentFactory()
 };
 
-foreach (var creator in creators)
+foreach (var factory in factories)
 {
-    creator.FactoryMethod()
-           .DoSomething();
+    factory.CreateDocument("El Orígen de las Especies.", "Lorem ipsum...")
+           .Render();
 }
