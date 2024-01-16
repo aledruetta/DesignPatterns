@@ -1,16 +1,31 @@
-using DesignPatterns.Library.FactoryMethodExample;
+// run: 'dotnet run <opt1> <opt2>'
+// example: 'dotnet run a 1'
+// example: 'dotnet run b 3'
 
-Console.WriteLine("--- Factory Method Example ---");
+using DesignPatterns.Library.Builder;
+
+char? opt1 = args[0]?[0];
+char? opt2 = args[1]?[0];
+
+Console.WriteLine("--- Builder ---");
 Console.WriteLine();
 
-List<IDocumentFactory> factories = new()
-{
-    new ODFDocumentFactory(),
-    new PDFDocumentFactory()
-};
+Builder builder;
 
-foreach (var factory in factories)
+switch (opt1)
 {
-    factory.CreateDocument("El Orígen de las Especies.", "Lorem ipsum...")
-           .Render();
+    case 'a':
+        builder = new ConcreteBuilderA();
+        break;
+    case 'b':
+        builder = new ConcreteBuilderB();
+        break;
+    default:
+        throw new NotImplementedException($"Option is not implemented: '{opt1}'");
 }
+
+Director director = new(builder, opt2);
+director.Construct();
+
+Product product = builder.GetProduct();
+Console.WriteLine(product);
