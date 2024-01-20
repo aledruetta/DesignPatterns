@@ -1,31 +1,17 @@
-// run: 'dotnet run <opt1> <opt2>'
-// example: 'dotnet run a 1'
-// example: 'dotnet run b 3'
+using DesignPatterns.Library.BuilderExample;
 
-using DesignPatterns.Library.Builder;
-
-char? opt1 = args[0]?[0];
-char? opt2 = args[1]?[0];
-
-Console.WriteLine("--- Builder ---");
-Console.WriteLine();
-
-Builder builder;
-
-switch (opt1)
+List<Document> documents = new()
 {
-    case 'a':
-        builder = new ConcreteBuilderA();
-        break;
-    case 'b':
-        builder = new ConcreteBuilderB();
-        break;
-    default:
-        throw new NotImplementedException($"Option is not implemented: '{opt1}'");
+    new Document(DocumentType.SimpleText, body: "Lorem ipsum..."),
+    new Document(DocumentType.Text, footer: "Copyright 2024"),
+    new Document(DocumentType.HTML, footer: "Copyright 2024"),
+    new Document(DocumentType.Text, "Título", "Subtítulo", "Lorem ipsum...", "Copyright 2024"),
+    new Document(DocumentType.HTML, "Título", "Subtítulo", "Lorem ipsum...", "Copyright 2024"),
+    new Document(DocumentType.Markdown, "Título", "Subtítulo", "Lorem ipsum...", "Copyright 2024"),
+};
+
+foreach (var document in documents)
+{
+    DocumentRenderer renderer = new(document);
+    Console.WriteLine(renderer.Render());
 }
-
-Director director = new(builder, opt2);
-director.Construct();
-
-Product product = builder.GetProduct();
-Console.WriteLine(product);

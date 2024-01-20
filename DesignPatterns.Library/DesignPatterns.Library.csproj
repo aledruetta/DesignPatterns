@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Builder/" />
+    <Folder Include="BuilderExample/" />
     <Folder Include="FactoryMethod/" />
     <Folder Include="FactoryMethodExample/" />
     <Folder Include="AbstractFactory/" />
